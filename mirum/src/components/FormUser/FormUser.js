@@ -14,7 +14,6 @@ class FormUser extends React.Component {
     super(props);
     const {
       name,
-      surname,
       age,
       email,
       phone,
@@ -23,16 +22,17 @@ class FormUser extends React.Component {
       newsletters,
       state,
       country,
-      interests
+      interests,
+      surname
     } = this.props.user;
     this.state = {
       name: name ?? "",
-      surname: surname ?? "",
-      age: age ?? "",
+      surname: surname?? '',
+      age: age ?? 0,
       email: email ?? "",
       phone: phone ?? "",
-      typeAddress: typeAddress ?? "",
-      address: address ?? "",
+      typeAddress: typeAddress ?? null,
+      address: address ?? null,
       newsletters: newsletters ?? "",
       state: state ?? null,
       country: country ?? null,
@@ -85,7 +85,6 @@ class FormUser extends React.Component {
 
     const {
       name,
-      surname,
       age,
       email,
       phone,
@@ -93,7 +92,8 @@ class FormUser extends React.Component {
       address,
       newsletters,
       state,
-      countryId
+      countryId,
+      surname
     } = this.props.user;
     return (
       <form className="container__form" onSubmit={(e) => this.submitForm(e)}>
